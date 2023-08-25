@@ -1,3 +1,4 @@
+const inquirer = require('inquirer');
 const fs = require('fs');
 
 const generateHTML = () => {
@@ -26,6 +27,39 @@ const generateHTML = () => {
 }
 
 const init = () => {
+    inquirer.prompt([{
+        type: 'input',
+        name: 'name',
+        message: 'What is your name?',
+    },
+    {
+        type: 'input',
+        name: 'location',
+        message: 'Where are you from?',
+    },
+    {
+        type: 'input',
+        name: 'hobby',
+        message: 'What is your favorite hobby?',
+    },
+    {
+        type: 'input',
+        name: 'food',
+        message: 'What is your favorite food?',
+    },
+    {
+        type: 'input',
+        name: 'github',
+        message: 'Enter your Github Username.',
+    },
+    {
+        type: 'input',
+        name: 'linkedin',
+        message: 'Enter your LinkedIn URL.',
+    }]).then((answers) => {
+        console.log(answers);
+    });
+
     const html = generateHTML();
 
     const fileName = 'index.html';
